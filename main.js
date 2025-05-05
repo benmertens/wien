@@ -116,7 +116,7 @@ async function loadLines(url) {
             //console.log(feature.properties);
             layer.bindPopup(`
                 <img src="${feature.properties.THUMBNAIL}" alt="*">
-                <h4>${feature.properties.NAME}<h4>
+                <h4>${feature.properties.LINE_NAME}<h4>
                 <adress>${feature.properties.ADRESSE}</adress>
                 <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
                 `);
@@ -244,7 +244,7 @@ async function loadHotels(url) {
                 `);
         }
 
-        
+
     }).addTo(overlays.hotels);
 }
 
