@@ -64,7 +64,7 @@ async function loadSights(url) {
             });
         },
         // Popup
-        onEachFeature: function(feature, layer) {
+        onEachFeature: function (feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
                 <img src="${feature.properties.THUMBNAIL}" alt="*">
@@ -109,10 +109,8 @@ async function loadLines(url) {
             }
 
         },
-
-
         // Popup
-        onEachFeature: function(feature, layer) {
+        onEachFeature: function (feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
                 <h4><i class="fa-solid fa-bus"> </i> ${feature.properties.LINE_NAME}</h4>
@@ -121,8 +119,6 @@ async function loadLines(url) {
                 <i class="fa-regular fa-circle-stop"></i> ${feature.properties.TO_NAME}
                 `);
         }
-
-
     }).addTo(overlays.lines);
 }
 
@@ -145,18 +141,14 @@ async function loadStops(url) {
             });
 
         },
-
-
         // Popup
-        onEachFeature: function(feature, layer) {
+        onEachFeature: function (feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
                 <h4><i class="fa-solid fa-bus"> </i> ${feature.properties.LINE_NAME}</h4>
                 ${feature.properties.STAT_ID} ${feature.properties.STAT_NAME}
                 `);
         }
-
-
     }).addTo(overlays.stops);
 }
 
@@ -177,10 +169,8 @@ async function loadZones(url) {
                 fillOpacity: 0.1,
             }
         },
-
-
         // Popup
-        onEachFeature: function(feature, layer) {
+        onEachFeature: function (feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
                 <h4>Fußgängerzone ${feature.properties.ADRESSE}</h4> 
@@ -188,8 +178,6 @@ async function loadZones(url) {
                 <i class="fa-solid fa-circle-info"></i> ${feature.properties.AUSN_TEXT}  
                 `);
         }
-
-
     }).addTo(overlays.zones);
 }
 
@@ -228,19 +216,18 @@ async function loadHotels(url) {
                 })
             });
         },
-
-
         // Popup
-        onEachFeature: function(feature, layer) {
+        onEachFeature: function (feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
-                <h4>${feature.properties.BETRIEB}</h4>
-                <adress>${feature.properties.ADRESSE}</adress>
-                <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
+                <h3>${feature.properties.BETRIEB}</h3>
+                <h4>${feature.properties.BETRIEBSART_TXT} ${feature.properties.KATEGORIE_TXT}</h4>
+                Addr.:${feature.properties.ADRESSE} <br>
+                Tel.:${feature.properties.KONTAKT_TEL} <br>
+                ${feature.properties.KONTAKT_EMAIL} <br>
+                ${feature.properties.WEBLINK1} <br>
                 `);
         }
-
-
     }).addTo(overlays.hotels);
 }
 
