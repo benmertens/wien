@@ -108,7 +108,21 @@ async function loadLines(url) {
                 color: lineColor
             }
 
+        },
+
+
+        // Popup
+        onEachFeature: function(feature, layer) {
+            //console.log(feature.properties);
+            layer.bindPopup(`
+                <img src="${feature.properties.THUMBNAIL}" alt="*">
+                <h4>${feature.properties.NAME}<h4>
+                <adress>${feature.properties.ADRESSE}</adress>
+                <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
+                `);
         }
+
+
     }).addTo(overlays.lines);
 }
 
@@ -122,7 +136,6 @@ async function loadStops(url) {
         attribution: "Datenquelle: <a href='https://data.wien.gv.at'> Stadt Wien </a>",
         pointToLayer: function (feature, latlng) {
             // console.log(feature.properties);
-
             return L.marker(latlng, {
                 icon: L.icon({
                     iconUrl: `icons/bus_${feature.properties.LINE_ID}.png`,
@@ -131,7 +144,21 @@ async function loadStops(url) {
                 })
             });
 
+        },
+
+
+        // Popup
+        onEachFeature: function(feature, layer) {
+            //console.log(feature.properties);
+            layer.bindPopup(`
+                <img src="${feature.properties.THUMBNAIL}" alt="*">
+                <h4>${feature.properties.NAME}<h4>
+                <adress>${feature.properties.ADRESSE}</adress>
+                <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
+                `);
         }
+
+
     }).addTo(overlays.stops);
 }
 
@@ -151,7 +178,21 @@ async function loadZones(url) {
                 opacity: 0.4,
                 fillOpacity: 0.1,
             }
+        },
+
+
+        // Popup
+        onEachFeature: function(feature, layer) {
+            //console.log(feature.properties);
+            layer.bindPopup(`
+                <img src="${feature.properties.THUMBNAIL}" alt="*">
+                <h4>${feature.properties.NAME}<h4>
+                <adress>${feature.properties.ADRESSE}</adress>
+                <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
+                `);
         }
+
+
     }).addTo(overlays.zones);
 }
 
@@ -189,7 +230,21 @@ async function loadHotels(url) {
                     popupAnchor: [0, -37]
                 })
             });
+        },
+
+
+        // Popup
+        onEachFeature: function(feature, layer) {
+            //console.log(feature.properties);
+            layer.bindPopup(`
+                <img src="${feature.properties.THUMBNAIL}" alt="*">
+                <h4>${feature.properties.NAME}<h4>
+                <adress>${feature.properties.ADRESSE}</adress>
+                <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
+                `);
         }
+
+        
     }).addTo(overlays.hotels);
 }
 
