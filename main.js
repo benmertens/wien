@@ -115,10 +115,10 @@ async function loadLines(url) {
         onEachFeature: function(feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
-                <img src="${feature.properties.THUMBNAIL}" alt="*">
-                <h4>${feature.properties.LINE_NAME}<h4>
-                <adress>${feature.properties.ADRESSE}</adress>
-                <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
+                <h4><i class="fa-solid fa-bus"> </i> ${feature.properties.LINE_NAME}</h4>
+                <i class="fa-regular fa-circle-stop"></i> ${feature.properties.FROM_NAME} <br>
+                <i class="fa-solid fa-arrow-down"></i> <br>
+                <i class="fa-regular fa-circle-stop"></i> ${feature.properties.TO_NAME}
                 `);
         }
 
@@ -151,10 +151,8 @@ async function loadStops(url) {
         onEachFeature: function(feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
-                <img src="${feature.properties.THUMBNAIL}" alt="*">
-                <h4>${feature.properties.NAME}<h4>
-                <adress>${feature.properties.ADRESSE}</adress>
-                <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
+                <h4><i class="fa-solid fa-bus"> </i> ${feature.properties.LINE_NAME}</h4>
+                ${feature.properties.STAT_ID} ${feature.properties.STAT_NAME}
                 `);
         }
 
@@ -185,10 +183,9 @@ async function loadZones(url) {
         onEachFeature: function(feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
-                <img src="${feature.properties.THUMBNAIL}" alt="*">
-                <h4>${feature.properties.NAME}<h4>
-                <adress>${feature.properties.ADRESSE}</adress>
-                <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
+                <h4>Fußgängerzone ${feature.properties.ADRESSE}</h4> 
+                <i class="fa-regular fa-clock"></i> ${feature.properties.ZEITRAUM} <br>
+                <i class="fa-solid fa-circle-info"></i> ${feature.properties.AUSN_TEXT}  
                 `);
         }
 
@@ -237,8 +234,7 @@ async function loadHotels(url) {
         onEachFeature: function(feature, layer) {
             //console.log(feature.properties);
             layer.bindPopup(`
-                <img src="${feature.properties.THUMBNAIL}" alt="*">
-                <h4>${feature.properties.NAME}<h4>
+                <h4>${feature.properties.BETRIEB}</h4>
                 <adress>${feature.properties.ADRESSE}</adress>
                 <a href="${feature.properties.WEITERE_INF}" target="wien">Webseite</a>    
                 `);
